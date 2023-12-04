@@ -3,9 +3,9 @@ import requests
 from core.forms import FindForm
 from django.shortcuts import redirect
 
-URL = "http://91.236.79.229:3000/account/richlist"
-URL_HEIGHT = "http://91.236.79.229:3000/chain/signed_snapshot"
-URL_HASHRATE = "http://91.236.79.229:3000/chain/hashrate"
+URL = "http://127.0.0.1:3000/account/richlist"
+URL_HEIGHT = "http://127.0.0.1:3000/chain/signed_snapshot"
+URL_HASHRATE = "http://127.0.0.1:3000/chain/hashrate"
 
 def mainPage(request):
     global input_wallet
@@ -22,8 +22,8 @@ def mainPage(request):
     input_wallet = request.GET.get('wallet', '')
     try:
         if input_wallet:
-            url = f'http://91.236.79.229:3000/account/{input_wallet}/balance'
-            url_transaction = f"http://91.236.79.229:3000/account/{input_wallet}/history/{ret_he}"
+            url = f'http://127.0.0.1:3000/account/{input_wallet}/balance'
+            url_transaction = f"http://127.0.0.1:3000/account/{input_wallet}/history/{ret_he}"
             url_transaction_get = requests.get(url_transaction).json()
             transaction = url_transaction_get['data']['perBlock']
             balance = requests.get(url).json()
