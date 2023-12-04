@@ -1,0 +1,232 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 10px;
+  width: 100vw;
+  height: 100vh;
+    height: 100vh;
+  background: red;
+  background: linear-gradient(to bottom, #ffffff, #ff8855); /* Standard syntax */
+
+}
+.one {
+  grid-column: 1 / 2;
+  grid-row: 1;
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+.three {
+  grid-row: 2 / 5;
+  grid-column: 1;
+}
+.four {
+
+  grid-column: 2/3;
+  grid-row: 2;
+    width: 300px;
+  height: 300px;
+  background: linear-gradient(to bottom, rgba(240,240,180, 0.2), rgba(100, 20, 30, 0.8));
+
+  position: absolute;
+  transform: rotate(45deg);
+  top: 250px;
+  left: calc(50vw - 150px);
+  animation: squareMove 2.25s;
+
+}
+.five {
+
+  grid-column: 3;
+  grid-row: 1;
+    text-align: center;
+}
+.six {
+
+  grid-column: 2/3;
+  grid-row: 1;
+  text-align: center;
+
+}
+.text {
+  font-family: "helvetica", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 32px;
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+
+  position: absolute;
+  top: 388px;
+  left: calc(50vw - 176px);
+
+  background: linear-gradient(to right, rgba(255,80,80, 0.5), rgba(110,0,10,0.9));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  mix-blend-mode: multiply;
+
+  animation: textMove 2.5s;
+}
+.circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-image: url("warthog.png");
+  /*background-color: rgba(255, 255, 255, 0.2);*/
+  /*background: linear-gradient(to bottom, rgba(255,255,255, 0.2), rgba(20, 150, 180, 0.8));*/
+
+  position: fixed;
+  top: 300px;
+  left: calc(50vw - 100px);
+
+  animation: circleMove 2s;
+}
+@keyframes squareMove {
+  from {top: -500px;}
+  to {top: 250px;}
+}
+
+@keyframes circleMove {
+  from {top: -500px;}
+  to {top: 300px;}
+}
+
+@keyframes textMove {
+  from {top: -500px;}
+  to {top: 388px;}
+}
+h1{
+color: saddlebrown;
+  font-family: "helvetica", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 24px;
+  color: rgba(255,80,80, 0.8);
+}
+p{
+  color: saddlebrown;
+  font-family: "helvetica", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0px;
+  font-size: 14px;
+  color: rgba(255,80,80, 1);
+  text-align: center;
+}
+body {
+  overflow: hidden;
+}
+.head{
+  color: saddlebrown;
+  font-family: "helvetica", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0px;
+  font-size: 24px;
+  color: rgba(255,80,80, 0.8);
+
+}
+.wallet{
+  text-align: left;
+}
+.one input[type="submit"]{
+  margin: auto;
+  display: block;
+  margin-top: 5px;
+
+}
+.wrap {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  min-width: 300px;
+  min-height: 60px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: #313133;
+  background: #ff8855;
+background: linear-gradient(90deg, rgba(255,140,80,0.8) 0%, rgba(255,130,60,1) 100%);
+  border: none;
+  border-radius: 1000px;
+  /*box-shadow: 12px 12px 24px rgba(255,100,100,.64);*/
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  padding: 10px;
+  }
+
+button::before {
+content: '';
+  border-radius: 1000px;
+  min-width: calc(300px + 12px);
+  min-height: calc(60px + 12px);
+  border: 6px solid #ff8855;
+  box-shadow: 0 0 60px rgba(255,100,100,.64);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all .3s ease-in-out 0s;
+}
+
+.button:hover, .button:focus {
+  color: #313133;
+  transform: translateY(-6px);
+}
+
+button:hover::before, button:focus::before {
+  opacity: 1;
+}
+
+button::after {
+  content: '';
+  width: 30px; height: 30px;
+  border-radius: 100%;
+  border: 6px solid #ff8855;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: ring 1.5s infinite;
+}
+
+button:hover::after, button:focus::after {
+  animation: none;
+  display: none;
+}
+
+@keyframes ring {
+  0% {
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+  }
+}
+
+.input {
+  display: block;
+  width: 80%;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 12px;
+}
